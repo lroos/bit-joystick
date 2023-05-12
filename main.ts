@@ -19,8 +19,7 @@ let rx = 0
 joystickbit.initJoystickBit()
 let x = joystickbit.getRockerValue(joystickbit.rockerType.X)
 let y = joystickbit.getRockerValue(joystickbit.rockerType.Y)
-music.setVolume(132)
-music.playSoundEffect(music.builtinSoundEffect(soundExpression.spring), SoundExpressionPlayMode.InBackground)
+music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.InBackground)
 let led2 = game.createSprite(2, 2)
 serial.redirectToUSB()
 basic.forever(function () {
