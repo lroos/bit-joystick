@@ -19,17 +19,16 @@ let rx = 0
 joystickbit.initJoystickBit()
 let x = joystickbit.getRockerValue(joystickbit.rockerType.X)
 let y = joystickbit.getRockerValue(joystickbit.rockerType.Y)
-music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.InBackground)
 let led2 = game.createSprite(2, 2)
 serial.redirectToUSB()
 basic.forever(function () {
-    rx = Math.map(joystickbit.getRockerValue(joystickbit.rockerType.X), 0, 1100, 0, 4)
+    rx = Math.round(Math.map(joystickbit.getRockerValue(joystickbit.rockerType.X), 0, 1023, 0, 4))
     if (x != rx) {
         x = rx
         radio.sendValue("x", 2 - x)
         led2.set(LedSpriteProperty.X, 4 - x)
     }
-    ry = Math.map(joystickbit.getRockerValue(joystickbit.rockerType.Y), 0, 1100, 0, 4)
+    ry = Math.round(Math.map(joystickbit.getRockerValue(joystickbit.rockerType.Y), 0, 1023, 0, 4))
     if (y != ry) {
         y = ry
         radio.sendValue("y", 2 - y)
